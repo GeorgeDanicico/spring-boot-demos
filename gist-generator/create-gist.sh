@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Example curl command to create a comprehensive gist showcasing Spring Boot
+curl -sX POST http://localhost:8080/gists \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "title": "Spring Boot: From Zero to Production",
+  "language": "md",
+  "markdown": "# Spring Boot: From Zero to Production\n\nSpring Boot helps you build production-ready applications quickly with sensible defaults, auto-configuration, and batteries-included starters.\n\n## Quick Start\n\n```java\n@SpringBootApplication\npublic class DemoApplication {\n    public static void main(String[] args) {\n        SpringApplication.run(DemoApplication.class, args);\n    }\n}\n```\n\nRun with the embedded Tomcat: `./mvnw spring-boot:run`\n\n## REST in Minutes\n\n```java\n@RestController\n@RequestMapping(\"/api\")\nclass GreetingController {\n    @GetMapping(\"/hello\")\n    String hello() {\n        return \"Hello, Spring Boot!\";\n    }\n}\n```\n\n## Configuration\n\nUse `application.yaml` or profiles:\n\n```yaml\nserver:\n  port: 8080\nspring:\n  datasource:\n    url: jdbc:postgresql://localhost:5432/app\n    username: app\n    password: secret\n```\n\n## Production Features\n\n- Actuator endpoints for health, metrics, and info\n- Externalized configuration via env vars, YAML, or Vault\n- DevTools for fast reload\n- Built-in logging with Logback\n- Easy Docker image builds via `spring-boot:build-image`\n\n## Testing\n\n- `@SpringBootTest` for integration tests\n- `@WebMvcTest` for controller slices\n- `@DataJpaTest` for JPA slices\n\n## Observability and Security\n\n- Micrometer metrics to Prometheus, Datadog, and more\n- Tracing with OpenTelemetry integrations\n- Security starter with sensible defaults; enable OAuth2/JWT quickly\n\n## Deploy Anywhere\n\n- Drop the fat JAR on a VM and run `java -jar app.jar`\n- Build container images with Paketo or Docker\n- Run on Kubernetes, Cloud Run, Lambda (with adapters), or any cloud VM\n\nStart small, iterate fast, and go to production with confidence using Spring Boot."
+}'

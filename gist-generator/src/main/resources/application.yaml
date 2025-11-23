@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: gist
+
+  aws:
+    access-key: key
+    secret-key: secret
+    region: us-east-1
+    bucket: my-bucket
+    s3-endpoint: 'https://localhost.localstack.cloud:4566'

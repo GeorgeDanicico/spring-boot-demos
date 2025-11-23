@@ -1,0 +1,21 @@
+services:
+
+  localstack:
+    container_name: localstack
+    image: localstack/localstack:3.3.0
+    ports:
+      - "127.0.0.1:4510-4559:4510-4559"
+      - "127.0.0.1:4566:4566"
+    environment:
+      - LOCALSTACK_HOSTNAME=localhost.localstack.cloud  
+      - AWS_ACCESS_KEY_ID=key
+      - AWS_SECRET_ACCESS_KEY=secret
+      - AWS_DEFAULT_REGION=us-east-1
+      - SERVICES=s3
+    volumes:
+      - "$PWD/tmp/localstack:/var/lib/localstack"
+      - "./localstack-init-s3.sh:/etc/localstack/init/ready.d/init-s3.sh"
+    networks:
+      default:
+        aliases:
+          - localhost.localstack.cloud  
