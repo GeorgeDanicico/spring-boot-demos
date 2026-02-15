@@ -1,0 +1,50 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+
+  application:
+    name: adoption
+  datasource:
+    password: secret
+    username: myuser
+    url: jdbc:postgresql://localhost/mydatabase
+
+  threads:
+    virtual:
+      enabled: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          authserver:
+            client-id: default-client
+            client-secret: default-secret
+            authorization-grant-type: authorization_code
+            provider: authserver
+        provider:
+          authserver:
+            issuer-uri: http://localhost:9000
+
+  ai:
+    mcp:
+      client:
+        type: SYNC
+        initialized: false
+        # toolCallback:
+        #   enable: true
+        streamable-http:
+          connections:
+            scheduler:
+              url: http://localhost:8090
+  
+    chat:
+      memory:
+        repository:
+          jdbc:
+            initialize-schema: always
+    openai:
+      api-key: ${OPENAI_API_KEY}
+    vectorstore:
+      pgvector:
+        initialize-schema: true

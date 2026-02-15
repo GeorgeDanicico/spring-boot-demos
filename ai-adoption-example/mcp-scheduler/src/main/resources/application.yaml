@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: mcp-scheduler
+    
+  threads:
+    virtual:
+      enabled: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9000
+
+  ai:
+    mcp:
+      server:
+        protocol: streamable
+server:
+  port: 8090
